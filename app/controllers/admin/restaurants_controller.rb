@@ -1,7 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 def index
 @restaurants = Restaurant.all #這個 Action 的目的是要顯示全部餐廳的資料。
 end
@@ -12,6 +12,16 @@ end
 
  def show
      #@restaurant = Restaurant.find(params[:id])
+ end
+
+ def edit
+
+ end
+
+ def destroy
+     @restaurant.destroy
+     redirect_to admin_restaurants_path
+     flash[:alert] = "restaurant was deleted"
    end
 
  def update
