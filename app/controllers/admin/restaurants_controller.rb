@@ -3,7 +3,7 @@ class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_admin
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 def index
-@restaurants = Restaurant.all #這個 Action 的目的是要顯示全部餐廳的資料。
+@restaurants = Restaurant.page(params[:page]).per(10) #這個 Action 的目的是要顯示全部餐廳的資料。
 end
 
  def new
