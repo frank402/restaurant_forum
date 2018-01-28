@@ -17,7 +17,8 @@ category_list =[
   { name: "素食料理" },
   { name: "美式料理" },
   { name: "複合式料理" },
-  { name: "韓式料理" }
+  { name: "韓式料理" },
+  { name: "法式料理" }
 ]
 
 category_list.each do |category|
