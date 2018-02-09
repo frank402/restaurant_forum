@@ -1,3 +1,5 @@
+
+
 <div class="container">
 
   <h1>餐廳分類總表</h1>
@@ -7,6 +9,9 @@
 </div>
 <hr>
 <div class="form-inline" >
+<% if @category.errors.any? %>
+  <%= @category.errors.full_messages.to_sentence %>
+<% end %>
   <%= form_for [:admin, @category] do |f| %>
     <div class="form-group">
       <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
