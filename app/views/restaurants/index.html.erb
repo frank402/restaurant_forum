@@ -2,6 +2,12 @@
   <div class="row">
     
     <!-- restaurants list，有多寫restaurant-item的class style -->
+    <ul class="nav nav-pills nav-pills-center">
+  <li class="active"><%= link_to "全部餐廳", root_path %></li>
+  <% @categories.each do |category| %>
+    <li><%= link_to category.name, category_path(category) %></li>
+  <% end %>
+</ul>
     <% @restaurants.each do |restaurant| %>
       <div class="col-sm-6 col-md-4">
         <div class="restaurant-item">
