@@ -1,28 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1><%= @restaurant.name %></h1>
-      <p>[<%= @restaurant.category.name %>]</p>
-    </div>
 
-    <div class="col-md-4">
-      <%= image_tag @restaurant.image, class: "img-responsive center-block" %>
-      <br>
-      <div class="well">
-        <ul class="list-unstyled">
-          <li><strong>Opening Hour:</strong> <%= @restaurant.opening_hours %></li>
-          <li><strong>Tel:</strong> <%= @restaurant.tel %></li>
-          <li><strong>Address:</strong> <%= @restaurant.address %></li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-8">
-      <%= simple_format @restaurant.description %>
-    </div>
+    <ul class="nav nav-pills nav-pills-center">
+      <li role="presentation">
+        <%= link_to "全部餐廳", root_path %>
+      </li>
+      <!-- 這邊判斷category==@category的時候要加 li.active -->
+      <% @categories.each do |category| %>
+        <li role="presentation" class="<%= "active" if category == @category %>">
+          <%= link_to category.name, category_path(category) %>
+        </li>
+      <% end %>
+    </ul>
 
-    <div class="clearfix"></div>
+    <br>
 
-    <hr>
+    <%= render partial: "shared/restaurant_list" %>
 
   </div>
 </div>

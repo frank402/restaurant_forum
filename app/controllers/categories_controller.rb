@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
 
 
-def show
+  def show
+	@categories = Category.all
 	@category = Category.find(params[:id])
-end
+	 @restaurants = @category.restaurants.page(params[:page]).per(9)
+  end
 
 end
