@@ -5,7 +5,9 @@ Rails.application.routes.draw do
  root "restaurants#index"
  resources :categories, only: :show
 
-
+resources :restaurants, only: [:index, :show] do
+  resources :comments, only: [:create, :destroy]
+end
  
   namespace :admin do
   	resources :restaurants
