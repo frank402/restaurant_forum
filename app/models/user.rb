@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
 	has_many :comments
 	
+  mount_uploader :avatar, PhotoUploader
+
    # admin? 讓我們用來判斷單個user是否有 admin 角色，列如：current_user.admin?
   def admin?
     self.role == "admin"
