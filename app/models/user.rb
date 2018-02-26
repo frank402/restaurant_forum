@@ -6,9 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 	has_many :comments
-	
+	validates_presence_of :name
   mount_uploader :avatar, PhotoUploader
-
+  has_many :restaurants, through: :comments
+  
    # admin? 讓我們用來判斷單個user是否有 admin 角色，列如：current_user.admin?
   def admin?
     self.role == "admin"
