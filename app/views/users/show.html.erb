@@ -18,28 +18,32 @@
           <% if @user.email == current_user.email %>
             <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Panel title</h3>
-          </div>
-          <div class="panel-body">
-            <% @commented_restaurants.each do |restaurant| %>
-
-            <% end %>
-          </div>
         </div>        
-
-
 
         <div class="clearfix"></div>
 
       </div>
 
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= @commented_restaurants.count %>已評論餐廳</h3>
+          </div>
+          <div class="panel-body">
+            <% @commented_restaurants.each do |restaurant| %>
+            <%= link_to restaurant_path(restaurant) do %>
+            <div class="my-restaurant">
+              <div>
+                <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+              </div>
+              <h5><%= restaurant.name %></h5>
+            </div>
+            <% end %>         
+              
+            <% end %>
+          </div>
+        </div>
+
       <br>
-
-
 
     </div>
   </div>

@@ -13,6 +13,7 @@
 .restaurant-item .caption {
   padding: 10px;
 }
+
 .word-wrap {
 	word-wrap:break-word;
 }
@@ -20,9 +21,30 @@
 .nav-pills-center {
   text-align: center;
 }
-
+/*餐廳首頁*/
 .nav-pills-center > li {
   float: none;
   display: inline-block;
 }
 
+.my-restaurant {
+  display: inline-block;
+  text-align: center;
+  padding: 8px;
+}
+
+.my-restaurant img{
+ max-height: 100%
+}
+
+.my-restaurant > div {
+  height: 60px;
+  }
+
+.panel a:hover .my-restaurant {
+  background-color: #eee;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration:none; 
+}

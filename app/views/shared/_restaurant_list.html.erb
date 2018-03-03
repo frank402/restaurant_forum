@@ -5,7 +5,7 @@
     <div class="restaurant-item">
        <%= link_to restaurant_path(restaurant) do %>
       <%= image_tag restaurant.image, class: "img-responsive center-block" %>
-      <% end -%>
+       <% end -%>
       <div class="caption">
         <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
         <p class="label label-default"><%= restaurant.category.name %><p>
