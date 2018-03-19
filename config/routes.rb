@@ -13,6 +13,8 @@ resources :restaurants, only: [:index, :show] do
 
     member do
       get :dashboard
+      post :favorite
+      post :unfavorite
     end
 end
  
