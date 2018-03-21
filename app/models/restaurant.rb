@@ -13,5 +13,5 @@ class Restaurant < ApplicationRecord
 	def is_favorited?(user)
     self.favorited_users.include?(user)
   end
-
+test12341234
 end
