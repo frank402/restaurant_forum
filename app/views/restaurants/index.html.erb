@@ -10,8 +10,8 @@
       <li role="presentation">
         <%= link_to '最新動態', feeds_restaurants_path %>
       </li>
+   
     </ul>
-
   </div>
 </div>
 
@@ -19,16 +19,13 @@
 
 <div class="container">
   <div class="row">
-    
     <!-- restaurants list，有多寫restaurant-item的class style -->
     <ul class="nav nav-pills nav-pills-center">
-  <li class="active"><%= link_to "全部餐廳", root_path %></li>
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, category_path(category) %></li>
-  <% end %>
-</ul>
-   
+      <li class="active"><%= link_to "全部餐廳", root_path %></li>
+     <% @categories.each do |category| %>
+       <li><%= link_to category.name, category_path(category) %></li>
+     <% end %>
+    </ul>  
        <%= render partial: "shared/restaurant_list" %>
-      
   </div>
 </div>

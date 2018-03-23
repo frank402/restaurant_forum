@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.build(comment_params)
@@ -15,7 +14,7 @@ class CommentsController < ApplicationController
     if current_user.admin?
       @comment.destroy
       redirect_to restaurant_path(@restaurant)
-      flash[:alert] = "Comment was deleted"
+      flash[:alert] = 'Comment was deleted'
     end
   end
 
@@ -24,5 +23,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
-
 end

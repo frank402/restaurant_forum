@@ -1,18 +1,13 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit update]
 
-  before_action :set_user, only: [:show, :edit, :update]
-
-	def show
-
-	@user = User.find(params[:id])
-	@commented_restaurants = @user.restaurants.uniq
-		
-	end
+  def show
+    @user = User.find(params[:id])
+    @commented_restaurants = @user.restaurants.uniq
+  end
 
   def edit
-    unless @user == current_user
-      redirect_to user_path(@user)
-    end
+    redirect_to user_path(@user) unless @user == current_user
   end
 
   def update
@@ -27,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :intro,:avatar)
+    params.require(:user).permit(:name, :intro, :avatar)
   end
-
 end
