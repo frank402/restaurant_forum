@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants/:id/unfavorite
   def unfavorite
     @restaurant = Restaurant.find(params[:id])
-    @favorites = Favorite.where(restaurant: @restaurant, user: current_user)
+    @favorites = i.where(restaurant: @restaurant, user: current_user)
     @favorites.destroy_all
     redirect_back(fallback_location: root_path)
   end
