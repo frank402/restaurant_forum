@@ -47,7 +47,6 @@ namespace :dev do
     Rake::Task['dev:fake_restaurant'].execute
     Rake::Task['dev:fake_user'].execute
     Rake::Task['dev:fake_comment'].execute
-    #看還有甚麼fake都能放進來
+    # 看還有甚麼fake都能放進來
   end
-
 end
