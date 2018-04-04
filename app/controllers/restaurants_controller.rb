@@ -11,6 +11,8 @@ class RestaurantsController < ApplicationController
     @comment = Comment.new
   end
 
+  #order(created_at: :desc) - 可以指定根據哪一個欄位來排序，並設定要升序 (asc) 還是降序 (desc)。
+  # limit(10) - 最多回傳幾筆資料，在這裡會回傳排序好的前 10 筆
   def feeds
     @recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
     @recent_comments = Comment.order(created_at: :desc).limit(10)
@@ -48,5 +50,11 @@ class RestaurantsController < ApplicationController
     @likes = Like.where(restaurant: @restaurant, user: current_user)
     @likes.destroy_all
     redirect_back(fallback_location: root_path)
+  end
+
+  #order(created_at: :desc) - 可以指定根據哪一個欄位來排序，並設定要升序 (asc) 還是降序 (desc)。
+  # limit(10) - 最多回傳幾筆資料，在這裡會回傳排序好的前 10 筆
+  def ranking
+    @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
   end
 end
