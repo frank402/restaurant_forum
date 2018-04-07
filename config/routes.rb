@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'restaurants#index'
   resources :categories, only: :show
-
+  # 宣告巢狀資源 (Nested Resouces) 來取得必要的父層資源
   resources :restaurants, only: %i[index show] do
     resources :comments, only: %i[create destroy]
 
@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: %i[show edit update]
-
+  resources :users, only: %i[show edit update index]
+  resources :followships, only: %i[create destroy]
   namespace :admin do
     resources :restaurants
     resources :categories
