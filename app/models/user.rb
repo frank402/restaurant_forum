@@ -18,7 +18,7 @@ class User < ApplicationRecord
   # 「使用者喜歡很多餐廳」的多對多關聯
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
-  
+
   # 「使用者追蹤使用者」的 self-referential relationships 設定
   # 不需要另加 source，Rails 可從 Followship Model 設定來判斷 followings 指向 User Model
   has_many :followships, dependent: :destroy

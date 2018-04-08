@@ -20,5 +20,4 @@ class Restaurant < ApplicationRecord
   def is_liked?(user)
     liked_users.include?(user)
   end
-
 end
