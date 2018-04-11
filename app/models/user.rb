@@ -23,8 +23,14 @@ class User < ApplicationRecord
   # 不需要另加 source，Rails 可從 Followship Model 設定來判斷 followings 指向 User Model
   has_many :followships, dependent: :destroy
   has_many :followings, through: :followships
+  
   # admin? 讓我們用來判斷單個user是否有 admin 角色，列如：current_user.admin?
   def admin?
     role == 'admin'
+  end
+  # 我們需要使用 current_user 與另一個 User 物件，在 followships table 上查詢，
+  # 看看是否有已經存在的紀錄，若有，就回傳 True，反而將回傳 False。
+  def following?(user)
+    self.followings.include?(user)
   end
 end
