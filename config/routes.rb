@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
       post :like
       post :unlike
+
+      post :friend
+      post :unfriend
     end
   end
 
