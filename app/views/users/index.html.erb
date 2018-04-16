@@ -41,7 +41,7 @@ following_id：使用者想要追蹤的人，這個資訊會來自在 @user.each
         <% end %>
 
         <%= render partial: "shared/follow", locals: {user: user} %>
-
+        <%= render partial: "shared/friend", locals: {user: user} %>   
       </div>
     <% end %>
 

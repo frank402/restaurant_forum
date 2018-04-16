@@ -27,13 +27,13 @@ Rails.application.routes.draw do
       post :like
       post :unlike
 
-      post :friend
-      post :unfriend
+
     end
   end
 
   resources :users, only: %i[show edit update index]
   resources :followships, only: %i[create destroy]
+  resources :friendships, only: %i[create destroy]
   namespace :admin do
     resources :restaurants
     resources :categories
