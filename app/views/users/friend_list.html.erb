@@ -1,0 +1,23 @@
+          <div class="col-md-12 col-sm-4 col-xs-6 text-center user-item">
+        <!-- 顯示followings的清單，panel包一個list-group  -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">好友數:<strong><%= @all_friend.count %></strong></h3>
+          </div>
+
+          <ul class="list-group">
+            <% @all_friend.each do |user| %>
+            <li class="list-group-item">
+              <%= link_to user_path(user) do %>
+              <!-- 可先利用 Placeholder 如 <img src="http://via.placeholder.com/128x128"> 產生圖片 -->
+              <%= image_tag(user.avatar, height: 30, width: 30, class: "img-rounded") %>
+              <h4><%= user.name %></h4>
+              
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+    
+
+

@@ -26,12 +26,16 @@ Rails.application.routes.draw do
 
       post :like
       post :unlike
-
-
+      
+      
     end
   end
 
-  resources :users, only: %i[show edit update index]
+  resources :users, only: %i[show edit update index] do
+    member do
+      get :friend_list
+    end
+  end
   resources :followships, only: %i[create destroy]
   resources :friendships, only: %i[create destroy]
   namespace :admin do

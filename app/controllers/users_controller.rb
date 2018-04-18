@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @favorited_restaurants = @user.favorited_restaurants
     @followings = @user.followings
     @followers = @user.followers # 需至 User Model 自訂方法
-    @friendings = @user.friendings
+    
+    
   end
 
   def edit
@@ -25,6 +26,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  end
+
+  def friend_list
+    set_user
+    @all_friend = @user.all_friends
   end
 
   private
