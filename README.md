@@ -1,24 +1,10 @@
-# README
+## How to initialize
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+下載要用到的套件
+```
+$ bundle install
+```
+載入預設提供的資料表
+```
+$ rails db:migrate
+```
