@@ -8,3 +8,7 @@ $ bundle install
 ```
 $ rails db:migrate
 ```
+可選擇是否再入預先提供的種子資料
+```
+$ rails db:seed
+```
